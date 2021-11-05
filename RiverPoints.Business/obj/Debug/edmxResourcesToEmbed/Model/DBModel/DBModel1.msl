@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RiversPointsModelStoreContainer" CdmEntityContainer="RiversPointsEntities">
+    <EntitySetMapping Name="Points">
+      <EntityTypeMapping TypeName="RiversPointsModel.Point">
+        <MappingFragment StoreEntitySet="Points">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="FKRiverID" ColumnName="FKRiverID" />
+          <ScalarProperty Name="NextPointId" ColumnName="NextPointId" />
+          <ScalarProperty Name="PreviosPointId" ColumnName="PreviosPointId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Records">
+      <EntityTypeMapping TypeName="RiversPointsModel.Record">
+        <MappingFragment StoreEntitySet="Record">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Speed" ColumnName="Speed" />
+          <ScalarProperty Name="Diameter" ColumnName="Diameter" />
+          <ScalarProperty Name="volume" ColumnName="volume" />
+          <ScalarProperty Name="EnterDate" ColumnName="EnterDate" />
+          <ScalarProperty Name="FKUserId" ColumnName="FKUserId" />
+          <ScalarProperty Name="TimeSaved" ColumnName="TimeSaved" />
+          <ScalarProperty Name="FkPointId" ColumnName="FkPointId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rivers">
+      <EntityTypeMapping TypeName="RiversPointsModel.River">
+        <MappingFragment StoreEntitySet="River">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Start" ColumnName="Start" />
+          <ScalarProperty Name="Finish" ColumnName="Finish" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RiverSettlements">
+      <EntityTypeMapping TypeName="RiversPointsModel.RiverSettlement">
+        <MappingFragment StoreEntitySet="RiverSettlement">
+          <ScalarProperty Name="RecordDiameter" ColumnName="RecordDiameter" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FKRiverID" ColumnName="FKRiverID" />
+          <ScalarProperty Name="FKSettlementID" ColumnName="FKSettlementID" />
+          <ScalarProperty Name="MaxDiameter" ColumnName="MaxDiameter" />
+          <ScalarProperty Name="FKPointID" ColumnName="FKPointID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Settlements">
+      <EntityTypeMapping TypeName="RiversPointsModel.Settlement">
+        <MappingFragment StoreEntitySet="Settlement">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserRolls">
+      <EntityTypeMapping TypeName="RiversPointsModel.UserRoll">
+        <MappingFragment StoreEntitySet="UserRoll">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="RiversPointsModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+          <ScalarProperty Name="UserTypeId" ColumnName="UserTypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

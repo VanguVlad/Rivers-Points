@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RiversPointsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Point">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FKRiverID" Type="Int32" Nullable="false" />
+    <Property Name="NextPointId" Type="Int32" />
+    <Property Name="PreviosPointId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Record">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Speed" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Diameter" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="volume" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="EnterDate" Type="DateTime" Precision="0" />
+    <Property Name="FKUserId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="TimeSaved" Type="DateTime" Precision="0" />
+    <Property Name="FkPointId" Type="Int32" />
+  </EntityType>
+  <EntityType Name="River">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Start" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Finish" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RiverSettlement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FKRiverID" Type="Int32" />
+    <Property Name="FKSettlementID" Type="Int32" />
+    <Property Name="MaxDiameter" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="FKPointID" Type="Int32" />
+    <Property Name="RecordDiameter" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="Settlement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRoll">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LastLogin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserTypeId" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="RiversPointsEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Points" EntityType="Self.Point" />
+    <EntitySet Name="Records" EntityType="Self.Record" />
+    <EntitySet Name="Rivers" EntityType="Self.River" />
+    <EntitySet Name="RiverSettlements" EntityType="Self.RiverSettlement" />
+    <EntitySet Name="Settlements" EntityType="Self.Settlement" />
+    <EntitySet Name="UserRolls" EntityType="Self.UserRoll" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+  </EntityContainer>
+</Schema>
